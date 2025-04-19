@@ -1,44 +1,22 @@
 import React from "react";
-import ReactDOM  from "react-dom/client"
+import ReactDOM from "react-dom/client";
 
+// React.createElement => creates/gives us an object => when we renders it into DOM => becomes an HTMLElement
+//using core React
+// const heading = React.createElement("h1",{id:"heading"}, "Namaste React");
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading)
 
-/** Nested parent-child
- *
- * <div id=" parent">
- *      <div id= "child">
- *           <h1></h1>
- *      </div>
- * </div>
- *
- *
- *
- */
-/**
- * SIblings
- * <h1>I am h1 tag</h1>
- * <h2> I am h2 tag</h2>
- * 
- * 
- * We will use array for writing child
- */
+//JSX - HTML or XML-like syntax but it is not html/xml inside javascript
+//Using JSX
+//JSX ( it gets transpiled before it reaches the JS) -> PARCEL -> Babel
+//Babel takes the JSX and transpiles/compiles the code to something which browser can understand
+// Babal -> JSX code is first transpiled into ReactElement React.createElement => creates/gives us an object => when we renders it into DOM => becomes an HTMLElement
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },[
-      React.createElement("h1", { id: "h1", key: "h1" }, "I am h1 tag!"),
-      React.createElement("h2", { id: "h2", key: "h2" }, "I am h2 tag!")
-
-    ]
-  )
-);
-
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World from React!"
+const heading = (
+  <h1 className="head" tabIndex="1">
+    Namaste React
+  </h1>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(heading);
