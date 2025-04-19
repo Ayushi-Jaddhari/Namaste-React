@@ -11,12 +11,45 @@ import ReactDOM from "react-dom/client";
 //Using JSX
 //JSX ( it gets transpiled before it reaches the JS) -> PARCEL -> Babel
 //Babel takes the JSX and transpiles/compiles the code to something which browser can understand
-// Babal -> JSX code is first transpiled into ReactElement React.createElement => creates/gives us an object => when we renders it into DOM => becomes an HTMLElement
+// Babel -> JSX code is first transpiled into ReactElement React.createElement => creates/gives us an object => when we renders it into DOM => becomes an HTMLElement
+//JSX sanitizes the input for us also, to prevent cross-site scripting attack
+// const heading = (
+//   <h1 className="head" tabIndex="1">
+//     Namaste React
+//   </h1>
+// );
 
-const heading = (
-  <h1 className="head" tabIndex="1">
-    Namaste React
+// Class Based Components and Function Component
+
+// React Functional Component
+
+//Component Composition : Component inside a component
+
+const TitleComponent = () => (
+  <h1 className="head" tabIndex="5">
+    Namaste React using JSX!
+  </h1>
+);
+let number = 3;
+const HeadingComponent = () => (
+  <div id="container">
+    <TitleComponent />
+    {bar}
+    <h1> Episode : {number} </h1>
+  </div>
+);
+
+const spanElem = (
+  <span> This is we trying react element inside react element</span>
+);
+
+const bar = (
+  <h1>
+    {spanElem}
+    <br></br>
+    This is React Element and I am trying to put it inside REact Component
   </h1>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+
+root.render(<HeadingComponent />);
